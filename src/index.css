@@ -1,0 +1,121 @@
+@import 'tailwindcss';
+
+/* Layout: én stor, rolig væg med glasset i midten; betjening under glasset,
+   tal og graf diskret i en smal kolonne til højre (stables på telefon). */
+:root {
+  --wall: #e9edee; /* lys flisevæg */
+  --shelf: #dde3e4; /* hylde og felter */
+  --ink: #1d2528;
+  --muted: #5b686d;
+  --line: #c5cfd1;
+  --band: #c8384f; /* elastikken om glasset */
+  --band-ink: #ffffff;
+  --yeast: #b26b12;
+  --lab: #0b7fa8;
+  --glass: #8fa3a8;
+  --dough: #e7d7b7;
+  --good: #2f7d4f;
+  --warn: #a8670b;
+  --bad: #b3263d;
+
+  --font-display: 'Bricolage Grotesque', 'Avenir Next', 'Segoe UI', sans-serif;
+  --font-body: 'Atkinson Hyperlegible', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --wall: #161c1f;
+    --shelf: #1f272b;
+    --ink: #e4eaec;
+    --muted: #94a3a8;
+    --line: #34413f;
+    --band: #f0687d;
+    --band-ink: #1b0a0e;
+    --yeast: #c98320;
+    --lab: #2a9dba;
+    --glass: #7f9399;
+    --dough: #d9c8a6;
+    --good: #5fbf86;
+    --warn: #e0a64a;
+    --bad: #f07a8c;
+    color-scheme: dark;
+  }
+}
+:root[data-theme='dark'] {
+  --wall: #161c1f;
+  --shelf: #1f272b;
+  --ink: #e4eaec;
+  --muted: #94a3a8;
+  --line: #34413f;
+  --band: #f0687d;
+  --band-ink: #1b0a0e;
+  --yeast: #c98320;
+  --lab: #2a9dba;
+  --glass: #7f9399;
+  --dough: #d9c8a6;
+  --good: #5fbf86;
+  --warn: #e0a64a;
+  --bad: #f07a8c;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-wall: var(--wall);
+  --color-shelf: var(--shelf);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-band: var(--band);
+  --color-band-ink: var(--band-ink);
+  --color-yeast: var(--yeast);
+  --color-lab: var(--lab);
+  --color-good: var(--good);
+  --color-warn: var(--warn);
+  --color-bad: var(--bad);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+}
+
+html,
+body {
+  background: var(--wall);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 15px;
+}
+
+h1,
+h2 {
+  text-wrap: balance;
+}
+
+.num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.label {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--band);
+  outline-offset: 2px;
+}
+
+input[type='range'] {
+  accent-color: var(--band);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
